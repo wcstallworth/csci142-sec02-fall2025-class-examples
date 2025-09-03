@@ -1,17 +1,31 @@
 package shapes;
 
 public class Square {
-	private float sideLength; 			// <-- "property"
-	private float area;
+	private double sideLength; 			// <-- "property"
 	
 	public Square() {					// <-- "constructor"
-		sideLength = 1.0f;
-		area = 1.0f;
+		this.sideLength = 1.0f;
 	}
 	
-	public Square(float sideLength) {
-		sideLength = sideLength;
-		area = sideLength * sideLength;
+	public Square(double sideLength) {
+		if (sideLength <= 0.0) {
+			this.sideLength = 1.0;
+		} else {
+			this.sideLength = sideLength;
+		}
+		
 	}
-	
+
+	public double getSideLength() {
+		return sideLength;
+	}
+
+	public void setSideLength(double sideLength) {
+		this.sideLength = sideLength;
+	}
+
+	public double getArea() {
+		return this.sideLength * this.sideLength;
+	}
+
 }
