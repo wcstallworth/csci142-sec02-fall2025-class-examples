@@ -1,17 +1,29 @@
 package shapes;
 
 public class Square {
-	private float sideLength;
-	private float area;
+	private double sideLength;
 	
 	public Square() {
-		sideLength = 1.0f;
-		area = 1.0f;
+		this.sideLength = 1.0f;
 	}
 	
-	public Square(float sideLength) {
-		sideLength = sideLength;
-		area = sideLength * sideLength;
+	public Square(double sideLength) {
+	    if (!Double.isFinite(sideLength) || sideLength < 0.0) {
+	        throw new IllegalArgumentException("sideLength must be finite and >= 0");
+	    }
+	    this.sideLength = sideLength;
+	}
+	
+	public double getSideLength() {
+		return sideLength;
+	}
+
+	public void setSideLength(double sideLength) {
+		this.sideLength = sideLength;
+	}
+
+	public double getArea() {
+		return this.sideLength * this.sideLength;
 	}
 
 }
