@@ -31,4 +31,9 @@ public class Square extends Shape {
 		return this.sideLength * this.sideLength;
 	}
 
+	@Override
+	public String toString() {
+		return "Square: sideLength = " + sideLength + " area = " + area() + super.toString();
+	}
+	
 }
