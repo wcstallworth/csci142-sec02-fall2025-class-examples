@@ -38,6 +38,22 @@ public class Square extends Shape implements Locatable {
 	}
 	
 	@Override
+	public Object clone() {
+		/*
+		 * Make sure to also create a new Point or else we only have a "shallow copy"
+		 * of "Square".  Cloning (or creating new) location provides a "deep copy".
+		 */
+		return new Square(this.sideLength, this.getColor(), new Point(location));
+	}
+	
+	public static Square copyOf(Square other) {
+		/* Ultimately, should call a copy constructor, but don't want to get 
+		 * too deep on this. (You can research via Chat!!)
+		 */
+		return new Square(other.sideLength, other.getColor(), new Point(other.location));
+	}
+	
+	@Override
 	public String toString() {
 		return "Square: sideLength = " + sideLength 
 				+ " area = " + area()
@@ -50,4 +66,9 @@ public class Square extends Shape implements Locatable {
 		return location;
 	}
 
+	@Override
+	public void moveTo(int x, int y) {
+		location.setLocation(x, y);
+		
+	}
 }

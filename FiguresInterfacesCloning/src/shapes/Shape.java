@@ -3,7 +3,7 @@ package shapes;
 import java.awt.Color;
 
 public abstract class Shape {
-    private final Color color;
+    private Color color;
 
     public Shape(Color color) {
         if (color == null) {
@@ -12,7 +12,11 @@ public abstract class Shape {
         this.color = color;
     }
 
-    public final Color getColor() {
+    public void setColor(Color color) {
+    	this.color = color;
+    }
+    
+    public Color getColor() {
         return color;
     }
 
